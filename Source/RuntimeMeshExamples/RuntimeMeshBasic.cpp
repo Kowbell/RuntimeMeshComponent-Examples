@@ -17,7 +17,7 @@ ARuntimeMeshBasic::ARuntimeMeshBasic()
 
 void ARuntimeMeshBasic::OnConstruction(const FTransform& Transform)
 {
-	FRuntimeMeshBuilder Builder = MakeRuntimeMeshBuilder<FVector, FRuntimeMeshVertexNoPosition, uint16>();
+	TSharedRef<FRuntimeMeshBuilder> Builder = MakeRuntimeMeshBuilder<FVector, FRuntimeMeshVertexNoPosition, uint16>();
 	
 	URuntimeMeshShapeGenerator::CreateBoxMesh(BoxSize, Builder);
 
@@ -48,7 +48,7 @@ void ARuntimeMeshBasic::BeginPlay()
 // 
 // 	GetRuntimeMeshComponent()->GetRuntimeMesh()->UpdateMeshSection(0, Vertices, Triangles);
 
-	FRuntimeMeshBuilder Builder = MakeRuntimeMeshBuilder<FVector, FRuntimeMeshVertexNoPosition, uint16>();
+	TSharedRef<FRuntimeMeshBuilder> Builder = MakeRuntimeMeshBuilder<FVector, FRuntimeMeshVertexNoPosition, uint16>();
 
 	URuntimeMeshShapeGenerator::CreateBoxMesh(BoxSize, Builder);
 
